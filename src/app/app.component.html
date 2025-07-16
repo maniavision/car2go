@@ -1,26 +1,25 @@
-<!-- src/app/app.component.html -->
+<!-- The main application shell with a modern toolbar and footer -->
 <mat-toolbar color="primary" class="app-toolbar">
-  <span class="logo">
-    <a routerLink="/">Car2Go</a>
-  </span>
+  <div class="toolbar-container">
+    <span class="logo">
+      <a routerLink="/">Car2Go</a>
+    </span>
 
-  <nav class="nav-links">
-    <a mat-button routerLink="/">Home</a>
-    <a mat-button routerLink="/cars">Cars</a>
-    <a mat-button routerLink="/request-car">Request</a>
-    <a mat-button routerLink="/reviews">Reviews</a>
-  </nav>
+    <nav class="nav-links" #navLinks>
+      <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button routerLink="/cars" routerLinkActive="active-link">Cars</a>
+      <a mat-button routerLink="/request-car" routerLinkActive="active-link">Request</a>
+      <a mat-button routerLink="/reviews" routerLinkActive="active-link">Reviews</a>
+    </nav>
 
-  <span class="spacer"></span>
+    <span class="spacer"></span>
 
-  <app-language-switcher
-    (languageChange)="0"
-    class="lang-switcher">
-  </app-language-switcher>
+    <app-language-switcher class="lang-switcher"></app-language-switcher>
 
-  <button mat-icon-button routerLink="/login" aria-label="Login">
-    <mat-icon>login</mat-icon>
-  </button>
+    <button mat-icon-button routerLink="/login" aria-label="Login" class="login-button">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
 
 <main class="main-content">
@@ -28,5 +27,11 @@
 </main>
 
 <footer class="app-footer">
-  <p>&copy; 2025 CarMarket. All rights reserved.</p>
+  <div class="footer-container">
+    <p>&copy; 2025 Car2Go. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
 </footer>

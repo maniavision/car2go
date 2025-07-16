@@ -1,68 +1,82 @@
-// Hero banner settings
-$hero-height: 60vh;
-$overlay-color: rgba(0, 0, 0, 0.4);
-$cta-gap: 1rem;
-
-@mixin center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .hero {
   position: relative;
-  height: $hero-height;
-  background: url('/assets/images/hero-car.jpg') center/cover no-repeat;
-  @include center-content;
+  height: 65vh;
+  background: url('/assets/images/hero-car.jpg') center center / cover no-repeat;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 0 24px;
 
   &__overlay {
     position: absolute;
     inset: 0;
-    background: $overlay-color;
+    background: linear-gradient(to right, rgba(25, 42, 86, 0.8), rgba(44, 62, 80, 0.5));
   }
 
   &__content {
     position: relative;
     z-index: 1;
-    max-width: 90%;
-    padding: 1rem;
-  }
-
-  &__lang-switch {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    max-width: 800px;
   }
 
   h1 {
-    font-size: 3rem;
-    margin: 0.5rem 0;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
   }
 
   p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
   }
 
   &__actions {
     display: flex;
-    gap: $cta-gap;
+    gap: 1.5rem;
+    justify-content: center;
+
+    button {
+      padding: 12px 32px;
+      font-size: 1rem;
+      border-radius: 25px;
+      font-weight: 500;
+    }
+
+    .hero-request-button {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: white;
+      }
+    }
   }
 }
 
-// Section styling
-.featured-cars,
-.home-reviews {
-  padding: 4rem 1rem;
-  text-align: center;
+.home-section {
+  padding: 5rem 0;
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 3rem;
+  }
+}
+
+.featured-cars {
+  background-color: #ffffff;
 }

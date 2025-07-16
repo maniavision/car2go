@@ -1,0 +1,7 @@
+// This partial file holds all shared SCSS variables for the application.
+@use '@angular/material' as mat;
+
+// Define a professional and modern color palette
+$car2go-primary: mat.define-palette(mat.$blue-grey-palette, 700, 500, 900);
+$car2go-accent: mat.define-palette(mat.$light-blue-palette, A400, A200, A700);
+$car2go-warn: mat.define-palette(mat.$red-palette);

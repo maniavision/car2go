@@ -3,6 +3,7 @@ import { CarFilters } from '../../../core/services/car.service';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select'
+import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-filter-panel',
@@ -10,7 +11,10 @@ import { MatSelectModule } from '@angular/material/select'
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardContent,
+    MatCard,
+    MatCardTitle
   ],
   templateUrl: './filter-panel.component.html',
   styleUrl: './filter-panel.component.scss'

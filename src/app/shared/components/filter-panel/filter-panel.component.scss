@@ -1,70 +1,53 @@
-$panel-bg: #fafafa;
-$panel-border: #e0e0e0;
-$panel-radius: 8px;
-$group-gap: 24px;
-$label-color: #444;
-$input-width: 48%;
-$fuel-gap: 8px;
-$padding: 16px;
+@use 'variables' as theme;
+@use '@angular/material' as mat;
 
-@mixin flex-center($justify: center, $align: center) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
+:host {
+  display: block;
 }
 
 .filter-panel {
-  background: $panel-bg;
-  border: 1px solid $panel-border;
-  border-radius: $panel-radius;
-  padding: $padding;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: $group-gap;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+  padding: 2rem !important;
+  background: #ffffff;
 
-  &__group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    h4 {
-      margin: 0;
-      font-size: 0.875rem;
-      color: $label-color;
-      text-transform: uppercase;
-    }
+  mat-card-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
   }
 
-  // Make all form fields full width
-  .mat-form-field {
+  &__group {
+    margin-bottom: 2rem;
+  }
+
+  &__group-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #90a4ae;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .mat-mdc-form-field {
     width: 100%;
   }
 
-  // Shared layout for any range-group
-  .range-group {
-    .range-inputs {
-      @include flex-center(space-between);
-      gap: 12px;
-
-      mat-form-field {
-        width: $input-width;
-      }
-    }
+  .range-inputs {
+    display: flex;
+    gap: 1rem;
   }
 
-  // Vertical list for fuel checkboxes
   .fuel-checkboxes {
     display: flex;
     flex-direction: column;
-    gap: $fuel-gap;
-    max-height: 120px;
-    overflow-y: auto;
-    padding-left: 8px;
+    gap: 0.75rem;
 
-    mat-checkbox {
-      margin: 0;
-      font-size: 0.875rem;
+    .mat-mdc-checkbox {
+      font-size: 1rem;
     }
   }
 }

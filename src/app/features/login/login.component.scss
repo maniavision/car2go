@@ -1,34 +1,110 @@
-$card-width: 360px;
-$spacing: 1rem;
+@use 'variables' as theme;
+@use '@angular/material' as mat;
 
-.login-card {
-  width: $card-width;
-  margin: 4rem auto;
-  padding: $spacing * 2;
+:host {
+  display: block;
+  background-color: #f4f6f8;
+}
+
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 64px); // Full height minus toolbar
+}
+
+.login-graphic {
+  background: linear-gradient(135deg, mat.get-color-from-palette(theme.$car2go-primary, 700), mat.get-color-from-palette(theme.$car2go-primary, 900));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
   text-align: center;
 
+  .graphic-icon {
+    font-size: 80px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+
   h2 {
-    margin-bottom: $spacing * 2;
-    color: #333;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  p {
+    font-size: 1.1rem;
+    max-width: 350px;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+  }
+}
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: #ffffff;
+
+  mat-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  mat-card-subtitle {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   mat-form-field {
     width: 100%;
-    margin-bottom: $spacing;
   }
 
-  button {
+  .login-button {
     width: 100%;
-    margin: $spacing 0;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    border-radius: 8px;
   }
 
-  a {
-    display: inline-block;
-    margin-top: $spacing;
-    color: #555;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+  mat-card-actions {
+    padding: 1.5rem 0 0;
+    font-size: 0.9rem;
+
+    a {
+      text-decoration: none;
+      color: mat.get-color-from-palette(theme.$car2go-primary, 700);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: mat.get-color-from-palette(theme.$car2go-accent, A400);
+      }
     }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 960px) {
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+
+  .login-graphic {
+    display: none;
   }
 }
