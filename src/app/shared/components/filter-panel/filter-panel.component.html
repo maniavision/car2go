@@ -1,0 +1,75 @@
+<form [formGroup]="form" class="filter-panel">
+  <!-- Make -->
+  <section class="filter-panel__group">
+    <h4>Make</h4>
+    <mat-select formControlName="makes" multiple>
+      <mat-option *ngFor="let m of makesList" [value]="m">{{ m }}</mat-option>
+    </mat-select>
+  </section>
+
+  <!-- Year Range -->
+  <section class="filter-panel__group range-group">
+    <h4>Year</h4>
+    <div class="range-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label>From</mat-label>
+        <input matInput type="number" formControlName="yearMin" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>To</mat-label>
+        <input matInput type="number" formControlName="yearMax" />
+      </mat-form-field>
+    </div>
+  </section>
+
+  <!-- Fuel Types -->
+  <section class="filter-panel__group">
+    <h4>Fuel</h4>
+    <div formArrayName="fuels" class="fuel-checkboxes">
+      <mat-checkbox
+        *ngFor="let fuel of fuelsList; let i = index"
+        [formControlName]="i"
+      >
+        {{ fuel }}
+      </mat-checkbox>
+    </div>
+  </section>
+
+  <!-- Mileage Range -->
+  <section class="filter-panel__group range-group">
+    <h4>Mileage (km)</h4>
+    <div class="range-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label>Min</mat-label>
+        <input matInput type="number" formControlName="mileageMin" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Max</mat-label>
+        <input matInput type="number" formControlName="mileageMax" />
+      </mat-form-field>
+    </div>
+  </section>
+
+  <!-- Color -->
+  <section class="filter-panel__group">
+    <h4>Color</h4>
+    <mat-select formControlName="colors" multiple>
+      <mat-option *ngFor="let c of colorsList" [value]="c">{{ c }}</mat-option>
+    </mat-select>
+  </section>
+
+  <!-- Price Range -->
+  <section class="filter-panel__group range-group">
+    <h4>Price (USD)</h4>
+    <div class="range-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label>Min</mat-label>
+        <input matInput type="number" formControlName="priceMin" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Max</mat-label>
+        <input matInput type="number" formControlName="priceMax" />
+      </mat-form-field>
+    </div>
+  </section>
+</form>

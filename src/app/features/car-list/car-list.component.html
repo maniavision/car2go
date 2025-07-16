@@ -1,0 +1,18 @@
+<div class="car-list">
+  <aside class="car-list__filters">
+    <app-filter-panel (filtersChange)="onFilter($event)"></app-filter-panel>
+  </aside>
+
+  <main class="car-list__grid">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <ng-container *ngIf="!loading">
+      <app-car-card
+        *ngFor="let car of cars$ | async"
+        [car]="car">
+      </app-car-card>
+      <p class="no-results" *ngIf="(cars$ | async)?.length === 0">
+        No cars match your filters.
+      </p>
+    </ng-container>
+  </main>
+</div>

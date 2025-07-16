@@ -1,0 +1,29 @@
+$lang-btn-bg: #fff;
+$lang-btn-active-bg: #1e88e5;
+$lang-btn-color: #555;
+$lang-btn-active-color: #fff;
+$border-color: #ccc;
+$border-radius: 4px;
+$transition: 0.2s;
+
+.lang-switcher {
+  display: inline-flex;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  button {
+    flex: 1;
+    padding: 4px 12px;
+    background: $lang-btn-bg;
+    color: $lang-btn-color;
+    border: none;
+    cursor: pointer;
+    transition: background $transition, color $transition;
+
+    &.active {
+      background: $lang-btn-active-bg;
+      color: $lang-btn-active-color;
+    }
+  }
+}

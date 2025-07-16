@@ -1,0 +1,8 @@
+<div class="reviews">
+  <div class="reviews__track">
+    <app-review-card
+      *ngFor="let rv of reviews$ | async"
+      [review]="rv">
+    </app-review-card>
+  </div>
+</div>

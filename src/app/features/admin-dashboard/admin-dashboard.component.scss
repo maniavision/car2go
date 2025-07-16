@@ -1,0 +1,35 @@
+$primary-color: #1976d2;
+$table-spacing: 1rem;
+
+.admin {
+  padding: $table-spacing;
+  h2 {
+    margin-bottom: $table-spacing;
+    color: $primary-color;
+  }
+
+  table {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    mat-select {
+      width: 120px;
+    }
+  }
+}

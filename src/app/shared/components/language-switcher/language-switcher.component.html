@@ -1,0 +1,12 @@
+<div class="lang-switcher">
+  <button
+    type="button"
+    [class.active]="current === 'en'"
+    (click)="switch('en')"
+  >EN</button>
+  <button
+    type="button"
+    [class.active]="current === 'fr'"
+    (click)="switch('fr')"
+  >FR</button>
+</div>

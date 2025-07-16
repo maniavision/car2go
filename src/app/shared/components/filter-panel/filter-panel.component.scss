@@ -1,0 +1,70 @@
+$panel-bg: #fafafa;
+$panel-border: #e0e0e0;
+$panel-radius: 8px;
+$group-gap: 24px;
+$label-color: #444;
+$input-width: 48%;
+$fuel-gap: 8px;
+$padding: 16px;
+
+@mixin flex-center($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.filter-panel {
+  background: $panel-bg;
+  border: 1px solid $panel-border;
+  border-radius: $panel-radius;
+  padding: $padding;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: $group-gap;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    h4 {
+      margin: 0;
+      font-size: 0.875rem;
+      color: $label-color;
+      text-transform: uppercase;
+    }
+  }
+
+  // Make all form fields full width
+  .mat-form-field {
+    width: 100%;
+  }
+
+  // Shared layout for any range-group
+  .range-group {
+    .range-inputs {
+      @include flex-center(space-between);
+      gap: 12px;
+
+      mat-form-field {
+        width: $input-width;
+      }
+    }
+  }
+
+  // Vertical list for fuel checkboxes
+  .fuel-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: $fuel-gap;
+    max-height: 120px;
+    overflow-y: auto;
+    padding-left: 8px;
+
+    mat-checkbox {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}

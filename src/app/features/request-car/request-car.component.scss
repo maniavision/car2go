@@ -1,0 +1,47 @@
+$grid-gap: 1rem;
+$card-padding: 2rem;
+$break-md: 900px;
+
+.request-card {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: $card-padding;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+
+  form {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: $grid-gap;
+      margin-bottom: 1.5rem;
+
+      .year-range {
+        display: flex;
+        gap: $grid-gap / 2;
+      }
+
+      .full {
+        grid-column: 1 / -1;
+      }
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+    }
+  }
+
+  @media (max-width: $break-md) {
+    padding: 1rem;
+
+    form .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

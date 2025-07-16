@@ -1,0 +1,68 @@
+// Hero banner settings
+$hero-height: 60vh;
+$overlay-color: rgba(0, 0, 0, 0.4);
+$cta-gap: 1rem;
+
+@mixin center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  position: relative;
+  height: $hero-height;
+  background: url('/assets/images/hero-car.jpg') center/cover no-repeat;
+  @include center-content;
+  color: #fff;
+  text-align: center;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: $overlay-color;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  &__lang-switch {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $cta-gap;
+  }
+}
+
+// Section styling
+.featured-cars,
+.home-reviews {
+  padding: 4rem 1rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+}

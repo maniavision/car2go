@@ -1,0 +1,42 @@
+$gap: 1.5rem;
+$filter-width: 280px;
+$break-sm: 768px;
+
+.car-list {
+  display: grid;
+  grid-template-columns: $filter-width auto;
+  gap: $gap;
+  padding: 1rem;
+
+  &__filters {
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $gap;
+    justify-items: center;
+    align-content: start;
+    min-height: 50vh;
+    position: relative;
+
+    mat-spinner {
+      margin: auto;
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #777;
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: $break-sm) {
+    grid-template-columns: 1fr;
+    &__filters { display: none; }
+  }
+}

@@ -1,0 +1,19 @@
+<mat-card class="car-card" appHighlight>
+  <div class="car-card__image-container">
+    <img
+      [src]="car.images[0]"
+      [alt]="car.make + ' ' + car.model"
+      class="car-card__image"
+    />
+  </div>
+  <mat-card-content class="car-card__content">
+    <h3 class="car-card__title">{{ car.make }} {{ car.model }}</h3>
+    <p class="car-card__specs">
+      {{ car.year }} • {{ car.fuelType }} • {{ car.mileage | number }} km
+    </p>
+    <p class="car-card__price">{{ car.price | priceFormat:'USD' }}</p>
+  </mat-card-content>
+  <mat-card-actions class="car-card__actions">
+    <button mat-stroked-button color="primary">View Details</button>
+  </mat-card-actions>
+</mat-card>

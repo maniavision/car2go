@@ -1,0 +1,44 @@
+$card-width: 360px;
+$spacing: 1rem;
+$pwd-bg: #f0f4c3;
+
+.confirm-card {
+  width: $card-width;
+  margin: 4rem auto;
+  padding: $spacing * 2;
+  text-align: center;
+
+  h2 {
+    margin-bottom: $spacing;
+    color: #2e7d32;
+  }
+
+  p {
+    margin-bottom: $spacing * 1.5;
+  }
+
+  .password-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $pwd-bg;
+    padding: $spacing;
+    border-radius: 4px;
+    margin-bottom: $spacing * 1.5;
+
+    span {
+      font-weight: bold;
+      margin-right: $spacing;
+      font-size: 1.125rem;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+.center-spinner {
+  display: block;
+  margin: 6rem auto;
+}

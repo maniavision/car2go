@@ -1,0 +1,63 @@
+<mat-card class="request-card">
+  <h2>Request a Specific Car</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Make(s)</mat-label>
+        <mat-select formControlName="makes" multiple>
+          <mat-option *ngFor="let m of makes" [value]="m">{{ m }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="year-range">
+        <mat-form-field appearance="outline">
+          <mat-label>Year From</mat-label>
+          <input matInput type="number" formControlName="yearMin" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Year To</mat-label>
+          <input matInput type="number" formControlName="yearMax" />
+        </mat-form-field>
+      </div>
+
+      <ng-container formGroupName="models" *ngFor="let make of form.value.makes">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ make }} Models</mat-label>
+          <mat-select [formControlName]="make" multiple>
+            <mat-option
+              *ngFor="let md of modelsMap[make]"
+              [value]="md"
+            >{{ md }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Additional Comments</mat-label>
+        <textarea matInput formControlName="comments"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone (optional)</mat-label>
+        <input matInput formControlName="phone" />
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      type="submit"
+    >
+      Pay & Submit ($5)
+    </button>
+  </form>
+</mat-card>

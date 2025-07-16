@@ -1,0 +1,14 @@
+<mat-card class="confirm-card" *ngIf="!loading">
+  <h2>Account Confirmed!</h2>
+  <p>Your account has been activated.</p>
+  <div class="password-box">
+    <span>{{ password }}</span>
+    <button mat-icon-button (click)="copy()">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+  <button mat-raised-button color="primary" routerLink="/login">
+    Proceed to Login
+  </button>
+</mat-card>
+<mat-spinner *ngIf="loading" class="center-spinner"></mat-spinner>

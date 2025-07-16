@@ -1,0 +1,25 @@
+$gap: 1rem;
+$thumb-scale: 0.98;
+$transition: 0.3s;
+
+.reviews {
+  overflow-x: auto;
+  padding: 1rem;
+
+  &__track {
+    display: flex;
+    gap: $gap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    app-review-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      transition: transform $transition ease;
+
+      &:hover {
+        transform: scale($thumb-scale);
+      }
+    }
+  }
+}

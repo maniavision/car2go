@@ -1,0 +1,32 @@
+<header class="hero">
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <app-language-switcher
+      (languageChange)="0"
+      class="hero__lang-switch"
+    ></app-language-switcher>
+
+    <h1>Your Next Car Awaits</h1>
+    <p>Explore thousands of listings or request a custom search.</p>
+
+    <div class="hero__actions">
+      <button mat-raised-button color="primary" routerLink="/cars">
+        Browse Cars
+      </button>
+      <button mat-stroked-button color="accent" routerLink="/request-car">
+        Request a Car
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="featured-cars">
+  <h2>Latest Arrivals</h2>
+  <app-car-list></app-car-list>
+</section>
+
+<section class="home-reviews">
+  <h2>What Our Clients Say</h2>
+  <app-reviews></app-reviews>
+</section>
