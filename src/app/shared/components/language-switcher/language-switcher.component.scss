@@ -1,29 +1,47 @@
-$lang-btn-bg: #fff;
-$lang-btn-active-bg: #1e88e5;
-$lang-btn-color: #555;
-$lang-btn-active-color: #fff;
-$border-color: #ccc;
-$border-radius: 4px;
-$transition: 0.2s;
-
 .lang-switcher {
   display: inline-flex;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
   overflow: hidden;
+  background: var(--surface-color);
+  box-shadow: var(--box-shadow-light);
+  transition: var(--transition-smooth);
+  
+  &:hover {
+    box-shadow: var(--box-shadow-medium);
+  }
 
   button {
     flex: 1;
-    padding: 4px 12px;
-    background: $lang-btn-bg;
-    color: $lang-btn-color;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
     border: none;
     cursor: pointer;
-    transition: background $transition, color $transition;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    font-size: 0.875rem;
+    min-width: 40px;
+    position: relative;
 
     &.active {
-      background: $lang-btn-active-bg;
-      color: $lang-btn-active-color;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 600;
+      transform: scale(1.05);
+    }
+    
+    &:not(.active):hover {
+      background: var(--background-secondary);
+      color: var(--text-color);
+    }
+    
+    &:first-child {
+      border-radius: 50px 0 0 50px;
+    }
+    
+    &:last-child {
+      border-radius: 0 50px 50px 0;
     }
   }
 }
