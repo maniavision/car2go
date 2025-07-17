@@ -1,4 +1,5 @@
-// Custom Theming for Angular Material
+// src/styles.scss
+
 @use 'variables' as theme;
 @use '@angular/material' as mat;
 
@@ -12,7 +13,9 @@ $car2go-theme: mat.define-light-theme((
     accent: theme.$car2go-accent,
     warn: theme.$car2go-warn,
   ),
-  typography: mat.define-typography-config(),
+  typography: mat.define-typography-config(
+    $font-family: 'Inter, sans-serif'
+  ),
   density: 0
 ));
 
@@ -21,12 +24,19 @@ $car2go-theme: mat.define-light-theme((
 
 /* Global Styles */
 :root {
-  // Define CSS Custom Properties for your theme colors
+  // Define CSS Custom Properties for your theme
   --primary-color: #{mat.get-color-from-palette(theme.$car2go-primary, 700)};
-  --primary-color-dark: #{mat.get-color-from-palette(theme.$car2go-primary, 900)};
-  --accent-color: #{mat.get-color-from-palette(theme.$car2go-accent, A400)};
-  --text-on-primary: #{mat.get-color-from-palette(theme.$car2go-primary, '700-contrast')};
+  --accent-color: #{mat.get-color-from-palette(theme.$car2go-accent, 600)};
+  --text-color: #{mat.get-color-from-palette(theme.$car2go-primary, 800)};
+  --background-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --border-radius: #{theme.$border-radius};
+  --box-shadow-light: #{theme.$box-shadow-light};
+  --box-shadow-heavy: #{theme.$box-shadow-heavy};
+  --transition-duration: #{theme.$transition-duration};
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 html, body {
   height: 100%;
@@ -34,18 +44,29 @@ html, body {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  color: #2c3e50;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 2rem;
+}
+
+// Global animation for router transitions
+.route-container-enter-active,
+.route-container-leave-active {
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.route-container-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.route-container-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }

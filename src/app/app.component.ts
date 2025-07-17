@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 // --- Import the necessary Material modules directly ---
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,4 +30,14 @@ import { LanguageSwitcherComponent } from './shared/components/language-switcher
 })
 export class AppComponent {
   title = 'car2go';
+   // --- Inject the ChildrenOutletContexts ---
+  constructor(private contexts: ChildrenOutletContexts) {}
+
+  /**
+   * This method is bound to the animation trigger in the template.
+   * It inspects the activated route's data to return the animation state.
+   */
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+  }
 }

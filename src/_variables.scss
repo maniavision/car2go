@@ -1,7 +1,14 @@
-// This partial file holds all shared SCSS variables for the application.
+// src/_variables.scss
+
 @use '@angular/material' as mat;
 
-// Define a professional and modern color palette
-$car2go-primary: mat.define-palette(mat.$blue-grey-palette, 700, 500, 900);
-$car2go-accent: mat.define-palette(mat.$light-blue-palette, A400, A200, A700);
-$car2go-warn: mat.define-palette(mat.$red-palette);
+// A modern, professional color palette
+$car2go-primary: mat.define-palette(mat.$grey-palette, 800, 700, 900);
+$car2go-accent: mat.define-palette(mat.$cyan-palette, 600, 400, 800);
+$car2go-warn: mat.define-palette(mat.$red-palette, 500);
+
+// Consistent styling variables
+$border-radius: 12px;
+$transition-duration: 0.3s;
+$box-shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+$box-shadow-heavy: 0 8px 30px rgba(0,0,0,0.15);

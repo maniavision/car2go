@@ -1,65 +1,79 @@
-$card-radius: 12px;
-$transition-duration: 0.3s;
-@import '../../../../styles.scss';
+// src/app/shared/components/car-card/car-card.component.scss
+
+@use "variables" as theme;
 
 :host {
   display: block;
 }
 
 .car-card {
-  border-radius: $card-radius;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: all $transition-duration ease-in-out;
-  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  transition: all var(--transition-duration) ease-in-out;
   cursor: pointer;
-  background: white;
+  background: var(--surface-color);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--box-shadow-heavy);
   }
 
   &__image-container {
-    height: 200px;
+    position: relative;
+    height: 220px;
     background-color: #e9ecef;
+    overflow: hidden;
   }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover &__image {
+    transform: scale(1.1);
+  }
+
+  &__year-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
   }
 
   &__content {
-    padding: 24px;
-    text-align: left;
+    padding: 1.5rem;
   }
 
   &__title {
-    margin: 0 0 8px;
-    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: mat.get-color-from-palette($car2go-primary, 800);
+    color: var(--text-color);
   }
 
   &__specs {
     font-size: 0.9rem;
     color: #6c757d;
-    margin-bottom: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__price {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: mat.get-color-from-palette($car2go-accent, A400);
-  }
-
-  &__actions {
-    padding: 0 24px 24px;
-    display: flex;
-
-    button {
-      flex-grow: 1;
-    }
+    color: var(--accent-color);
   }
 }

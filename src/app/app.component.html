@@ -1,37 +1,57 @@
-<!-- The main application shell with a modern toolbar and footer -->
+<!-- src/app/app.component.html -->
+
 <mat-toolbar color="primary" class="app-toolbar">
   <div class="toolbar-container">
-    <span class="logo">
-      <a routerLink="/">Car2Go</a>
-    </span>
+    <a routerLink="/" class="logo">
+      <mat-icon>directions_car</mat-icon>
+      <span>Car2Go</span>
+    </a>
 
-    <nav class="nav-links" #navLinks>
-      <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a mat-button routerLink="/cars" routerLinkActive="active-link">Cars</a>
-      <a mat-button routerLink="/request-car" routerLinkActive="active-link">Request</a>
-      <a mat-button routerLink="/reviews" routerLinkActive="active-link">Reviews</a>
+    <nav class="nav-links">
+      <a
+        mat-button
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      <a mat-button routerLink="/cars" routerLinkActive="active-link"
+        >Explore Cars</a
+      >
+      <a mat-button routerLink="/request-car" routerLinkActive="active-link"
+        >Request a Car</a
+      >
     </nav>
 
     <span class="spacer"></span>
 
+    <!-- Restoring the language switcher for full functionality -->
     <app-language-switcher class="lang-switcher"></app-language-switcher>
 
-    <button mat-icon-button routerLink="/login" aria-label="Login" class="login-button">
+    <!-- Changed to mat-flat-button for better visibility on a light toolbar -->
+    <button
+      mat-flat-button
+      color="primary"
+      routerLink="/login"
+      class="login-button"
+    >
       <mat-icon>account_circle</mat-icon>
+      <span>Login</span>
     </button>
   </div>
 </mat-toolbar>
 
-<main class="main-content">
+<main class="main-content" [@routeAnimations]="getRouteAnimationData()">
   <router-outlet></router-outlet>
 </main>
 
 <footer class="app-footer">
   <div class="footer-container">
-    <p>&copy; 2025 Car2Go. All rights reserved.</p>
+    <p>&copy; 2025 Car2Go. Your drive, your way.</p>
     <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
     </div>
   </div>
 </footer>
