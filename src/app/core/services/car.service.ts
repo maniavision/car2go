@@ -4,7 +4,8 @@ import {
   BehaviorSubject,
   Observable
 } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { Car } from '../models/car.model';
 
 export interface CarFilters {
@@ -30,6 +31,9 @@ export class CarService {
   private loadAll(): void {
     this.http
       .get<Car[]>('/api/cars')
+      .pipe(
+        catchError(() => of([]))
+      )
       .subscribe(cars => this.carsSubject.next(cars));
   }
 
@@ -62,6 +66,9 @@ export class CarService {
 
     this.http
       .get<Car[]>('/api/cars', { params })
+      .pipe(
+        catchError(() => of([]))
+      )
       .subscribe(cars => this.carsSubject.next(cars));
   }
 
