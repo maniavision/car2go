@@ -7,6 +7,7 @@ import {
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Car } from '../models/car.model';
+import { mockCars } from '../../../mocks/cars';
 
 export interface CarFilters {
   makes?: string[];
@@ -29,12 +30,13 @@ export class CarService {
   }
 
   private loadAll(): void {
+
     this.http
       .get<Car[]>('/api/cars')
       .pipe(
         catchError(() => of([]))
-      )
-      .subscribe(cars => this.carsSubject.next(cars));
+      ).subscribe(cars => this.carsSubject.next(mockCars));
+      // .subscribe(cars => this.carsSubject.next(cars));
   }
 
   filter(filters: CarFilters): void {
